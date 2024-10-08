@@ -140,7 +140,9 @@ Below are some screenshots showcasing various sections and features of the **EdQ
 
 ### 🤖 **Welcome Page**
 
-![Screenshot 2024-10-07 172327](https://github.com/user-attachments/assets/85124c3e-cdc3-42a2-acdb-41dd62292890)
+![Screenshot 2024-10-07 172327](https://github.com/user-attachments/assets/620506f3-66ed-437f-b2dc-d8e533807baa)
+
+
 
 - The **Welcome Page** introduces users to the platform and offers easy navigation to explore the platform’s features and services.
 
@@ -148,24 +150,26 @@ Below are some screenshots showcasing various sections and features of the **EdQ
 
 ### 🔑 **Login Page**
 
-![Screenshot (279)](https://github.com/user-attachments/assets/d5ff1fdd-7c01-4904-be4a-2994d1051b68)
+![Screenshot (279)](https://github.com/user-attachments/assets/5658ad20-2b75-4d83-b45c-b7fa67c843f8)
 
 - Use the **Login Page** to access your account and unlock premium features, including access to the platform’s chatbot for assistance.
 
 ---
 
+
 ### 📚 **Courses Page**
 
-![Screenshot 2024-10-07 172246](https://github.com/user-attachments/assets/934fb45f-86de-4434-b602-9370087e3489)
+![Screenshot 2024-10-07 172246](https://github.com/user-attachments/assets/dc465dbf-557f-4369-9e38-cb06604f3e3b)
 
 - The **Courses Page** offers a wide range of academic subjects and programming tutorials.
 - Users can filter courses by topics or difficulty levels and start learning right away with interactive tutorials.
 
 ---
+![Screenshot (281)](https://github.com/user-attachments/assets/c7ae95df-55c2-4fd6-bf87-48d24dba511f)
 
 ### 📊 **Profile Page**
 
-![Screenshot (281)](https://github.com/user-attachments/assets/c0e3f478-79ac-447b-beb0-c0e27477ac48)
+![Screenshot (281)](https://github.com/user-attachments/assets/c7ae95df-55c2-4fd6-bf87-48d24dba511f)
 
 - The **Profile Page** helps users track their learning journey with the **Progress Tracking Dashboard**.
 - Monitor your completed courses, upcoming assignments, and overall performance at a glance.
