@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+    <title>Login SignUp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="google-signin-client_id" content="328347693502-drbss3p7g89df3a3l60hgpf18d3asdv7.apps.googleusercontent.com">
+    <!-- It will redirect to the Home Page after submitting the form -->
+    <script src="loader.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(){
+            });
+            
+
+            // Populate the interests dropdown
+            const interests = ["JEE Preparation", "GATE Preparation", "Computer Courses", "Data Structure", "Algorithm", "Projects"];
+            const interestsDropdown = $('#interestsDropdown');
+            interests.forEach(interest => {
+                interestsDropdown.append(new Option(interest, interest));
+            });
+
+            // Check for error message in URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            
+            // Display error message as alert if present
+            if (error === 'password') {
+                showModal()
+            }
+        });
+        function showErrorModal() {
+    const modal = document.getElementById("errorModal");
+    const span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+}
+        function forgotPassword() {
+    window.location.href = 'forgot_password.html'; // Replace with the actual URL of your forgot password page
+}
+
+    </script>
+    
+    <style>
+
+        .scrollable {
+            max-height: 400px; /* Adjust as needed */
+            overflow-y: auto;
+        }
+    </style>
+     <style>
+        @media (max-width: 768px) {
+    .form-box {
+        width: 90%;
+    }
+    .toggle-btn {
+        font-size: 14px;
+    }
+    .submit-btn {
+        font-size: 14px;
+    }
+}
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0c3;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    overflow: hidden;
+    background-image: url(https://lh5.googleusercontent.com/proxy/E60bugMrz3Jw0Ty3vD1HqfrrabnAQGlHzIJjRadV1kDS_XSE0AtWuMnjW9VPvq1YeyPJK13gZw63TQYvh2RlaZq_aQm5xskpsgWW1l67gg3mkYaZr07BQqMV47onKA=w3840-h2160-p-k-no-nd-mv);
+    background-position: center center;
+        background-repeat: no-repeat no-repeat;
+        background-size: cover;
+}
+.logo {
+	display: flex;
+	justify-content: center;
+}
+.logo img {
+	width: 100px;
+}
+.form-box
+{
+	width: 380px;
+	height: 500px;
+	position: relative;
+	margin: 6% auto;
+	background: #fff8;
+	padding: 5px;
+	border-radius: 5px;
+	overflow-y: auto; /* Add this line to enable vertical scrolling */
+	box-shadow: 0px 0px 100px rgba(0,0,0,0.4);
+}
+
+.form-box::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.form-box::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+
+}
+
+.form-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.button-box
+{
+	width: 220px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px rgba(0,0,0,.1);
+	border-radius: 30px;
+}
+
+.toggle-btn
+{
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	position: relative;
+	border: 0;
+	outline: none;
+}
+.toggle-btn.active {
+    color: #fff;
+}
+
+#btn
+{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: linear-gradient(to right, #FA4B37, #DF2771);
+	border-radius: 30px;
+	transition: 0.3s ease;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    opacity: 0.7;
+}
+
+.input-group
+{
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5s;
+	font-size: 13px;
+	color: #010101;
+    
+}
+.inp {
+	border-bottom: 1px solid rgba(0,0,0,0.4);
+	justify-content: center;
+}
+.inp img{
+	width: 20px;
+	padding-right: 10px;
+}
+.input-field:focus {
+    border-color: #3498db;
+}
+
+.input-field
+{
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.4);
+	outline: none;
+	background: transparent;
+    transition: border-color 0.3s ease;
+
+	color: rgba(0,0,0);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: rgba(0,0,0,0.7);
+	/*opacity: 1;  Firefox */
+}
+#register .input-field {
+	color: rgba(0,0,0,0.8);
+}
+.submit-btn
+{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: linear-gradient(to right, #FA4B37, #DF2771);
+	color: #fff;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+.submit-btn:hover {
+    background: linear-gradient(to right, #DF2771, #FA4B37);
+}
+.reg-btn {
+	background: lightgray;
+}
+.check-box
+{
+	cursor: pointer;
+	margin: 30px 10px 30px 0;
+}
+
+.instead {
+	margin-top: 20px;
+}
+.instead h3 {
+    overflow: hidden;
+    text-align: center;
+    color: rgba(0,0,0,0.6);
+}
+.instead h3:before,
+.instead h3:after {
+    background-color: rgba(0,0,0,0.5);
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.instead h3:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.instead h3:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+
+span
+{
+	color: rgba(0,0,0,0.8);
+	font-size: 12px;
+}
+
+#login
+{
+	left: 50px;
+}
+#register
+{
+	left: 450px;
+}
+
+.other {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 240px;
+}
+
+.connect {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+.connect:hover {
+    background: #f0f0f0;
+}
+
+.connect img {
+    width: 16px;
+    margin-right: 10px;
+}
+.connect span {
+	padding: 2px;
+	font-size: 15px;
+    width: 255px;
+}
+
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-top: 30px;
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+        .contact-info a:hover {
+            color: #007bff;
+        }
+        .logo img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        /* Loader styles */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background-color: #3498db;
+            z-index: 10000;
+        }
+        .scrollable {
+            max-height: 400px; /* Adjust as needed */
+            overflow-y: auto;
+        }
+        
+.input-icon {
+    width: 90px;
+    transition: opacity 0.3s ease;
+}
+.input-field {
+    flex: 1;
+    
+    padding: 10px 0;
+    border: #007bff;
+    outline: none;
+    background: transparent;
+    color: rgba(0, 0, 0);
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.check-box {
+    cursor: pointer;
+}
+
+
+.inp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding-bottom: 5px;
+}
+
+
+
+.input-field::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+.input-field:focus {
+    border-bottom: 2px solid #3498db;
+}
+
+
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #FA4B37, #DF2771);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #DF2771, #FA4B37);
+}   
+
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+    animation: fadeInBackground 0.3s ease-out;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 13% auto;
+    padding: 20px 30px;
+    border: none;
+    width: 80%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    text-align: center;
+    animation: slideIn 0.5s ease-out; /* Slide-in animation */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-right: -10px;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Message */
+.modal-content p {
+    font-size: 18px;
+    color: #555;
+    margin: 20px 0;
+}
+
+/* Error Icon */
+.error-icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+/* Optional: Add a button for user interaction */
+.modal-content button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #c0392b;
+}
+
+/* Fade-in Background Animation */
+@keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+
+    </style>
+    
+</head>
+<body>
+    <!-- Trigger button for demonstration -->
+    <button onclick="showModal()"></button>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="error-icon">&#9888;</div> <!-- Unicode warning icon -->
+            <p>Invalid email or password. Please try again.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle modal display -->
+    <script>
+        function showModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" id="log" onclick="login()" style="color: #fff;">Log In</button>
+            <button type="button" class="toggle-btn" id="reg" onclick="register()">Register</button>
+        </div>
+        <div class="social-icons">
+            <a href="https://google.com/" target="_blank">
+                <img src="images/icon/mm.png" style="width: 30px; height: 30px;">
+            </a>
+            <a href="https://wa.me/+919535775545" target="_blank">
+                <img src="images/icon/whatsapp.png" style="width: 30px; height: 30px;" alt="WhatsApp">
+            </a>
+                        <a href="homepage.html">
+                <img src="images/icon/hom.png" style="width: 30px; height: 30px;">
+            </a>
+                    </div>
+
+        <!-- Login Form -->
+        
+        <form id="login" class="input-group" action="http://localhost:81/verify/Edquest-E_learning_Website(MINI PROJECT-2)/login1.php" method="POST">
+            <div class="inp">
+                <img src="images/icon/user.png" style="width: 32px; height: 22px;"><input type="text" name="identifier" class="input-field" placeholder="Email or Mobile Number" style="width: 88%; border:none;" required="required">
+            </div>
+            <div class="inp">
+                <img src="images/icon/password.png" style="width: 32px; height: 22px;"><input type="password" name="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
+            </div>
+            <input type="checkbox" class="check-box">Remember Password
+            <button type="submit" class="submit-btn">Log In</button>
+        </form>
+
+        <div class="other" id="other">
+            <div class="instead">
+                <h3>or</h3>
+            </div>
+            <button class="connect" onclick="forgotPassword()">
+                <span>Forgot Password?</span>
+            </button>
+        </div>
+        
+
+        <!-- Registration Form -->
+        <div class="scrollable">
+            <form id="register" class="input-group" action=" http://localhost:81/verify/Edquest-E_learning_Website(MINI PROJECT-2)/register.php" method="POST">
+                <div class="scroll-container">
+                    <div>
+                        <input type="text" name="fullname" class="input-field" placeholder="Full Name" required="required">
+                    </div>
+                    <div>
+                        <input type="email" name="email" class="input-field" placeholder="Email Address" required="required">
+                    </div>
+                    <div>
+                        <input type="password" name="password" class="input-field" placeholder="Create Password" required="required">
+                    </div>
+                    <div>
+                        <input type="password" name="confirm_password" class="input-field" placeholder="Confirm Password" required="required">
+                    </div>
+                    <div>
+                        <input type="text" name="location" class="input-field" placeholder="Location" required="required">
+                    </div>
+                    <div>
+                        <input type="number" name="age" class="input-field" placeholder="Age" required="required">
+                    </div>
+                    <div>
+                        <select name="interests" class="input-field" id="interestsDropdown">
+                            <option value="" disabled selected>Select Interest</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" name="course_name" class="input-field" placeholder="Course Name">
+                    </div>
+                    <div>
+                        <input type="date" name="start_date" class="input-field" placeholder="Start Date" required="required">
+                    </div>
+                    <div>
+                        <input type="number" name="duration" class="input-field" placeholder="Duration">
+                    </div>
+                    <div>   
+                        <input type="tel" name="contact" class="input-field" placeholder="Contact Number with Country Code" required="required">
+                    </div>
+                    
+
+                    <div>
+                        <input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
+                    </div>
+
+                    <div>
+                        <button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button><br><br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+

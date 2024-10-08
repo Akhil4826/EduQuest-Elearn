@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="images/icon/favicon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EdQuest - Update Profile</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="loader.js"></script>
+
+    <style>
+        /* Additional custom styles specific to this page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        button[type="submit"], button[type="button"] {
+            background-color: #DF2771;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #DF2771;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .main {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1>Edit Profile</h1>
+            <form id="update-profile-form">
+                <label for="fullname">Full Name:</label><br>
+                <input type="text" id="fullname" name="fullname" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="location">Location:</label><br>
+                <input type="text" id="location" name="location"><br><br>
+
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age"><br><br>
+
+                <label for="interests">Interests:</label><br>
+                <input type="text" id="interests" name="interests"><br><br>
+
+                <label for="course_name">Course Name:</label><br>
+                <input type="text" id="course_name" name="course_name"><br><br>
+
+                <label for="start_date">Start Date:</label><br>
+                <input type="date" id="start_date" name="start_date"><br><br>
+
+                <label for="duration">Duration (weeks):</label><br>
+                <input type="number" id="duration" name="duration"><br><br>
+
+                <button type="submit">Update Profile</button>
+                <button type="button" id="go-to-dashboard">Go back to Dashboard</button>
+            </form>
+        </header>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let userId = urlParams.get('user_id');
+
+            // Fetch user details to pre-fill the form
+            if (userId) {
+                $.ajax({
+                    url: 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/get_user_info.php?user_id=' + userId,
+                    type: 'GET',
+                    success: function(response) {
+                        const user = JSON.parse(response);
+                        if (user) {
+                            $('#fullname').val(user.fullname);
+                            $('#email').val(user.email);
+                            $('#location').val(user.location);
+                            $('#age').val(user.age);
+                            $('#interests').val(user.interests);
+                            $('#course_name').val(user.course_name);
+                            $('#start_date').val(user.start_date);
+                            $('#duration').val(user.duration);
+                        } else {
+                            alert('User not found or no data available.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error fetching user details: ' + error);
+                    }
+                });
+            }
+
+            // Update profile on form submission
+            $('#update-profile-form').submit(function(event) {
+                event.preventDefault();
+                const formData = {
+                    user_id: userId,
+                    fullname: $('#fullname').val(),
+                    email: $('#email').val(),
+                    location: $('#location').val(),
+                    age: $('#age').val(),
+                    interests: $('#interests').val(),
+                    course_name: $('#course_name').val(),
+                    start_date: $('#start_date').val(),
+                    duration: $('#duration').val()
+                };
+
+                $.ajax({
+                    url: 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/update_user_info.php',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        const result = JSON.parse(response);
+                        if (result.status === 'success') {
+                            alert('Profile updated successfully!');
+                            window.location.href = 'profile1.php?user_id=' + userId; // Redirect to dashboard
+                        } else {
+                            alert('Error updating profile: ' + result.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error updating profile: ' + error);
+                    }
+                });
+            });
+
+            // Function to go back to dashboard
+            $('#go-to-dashboard').click(function() {
+                window.location.href = 'profile1.php?user_id=' + userId;
+            });
+        });
+    </script>
+</body>
+</html>

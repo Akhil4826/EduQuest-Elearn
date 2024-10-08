@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Games</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('user_id');
+        console.log(userId); // Output: 123
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="loader.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        $(window).on('scroll', function(){
+            if($(window).scrollTop()){
+                $('nav').addClass('black');
+            }else {
+                $('nav').removeClass('black');
+            }
+        })
+    </script>
+    <!-- Link additional stylesheets or scripts if needed -->
+    <style>
+        /* Additional styles specific to this page */
+       .title {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+       .course {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+       .det {
+            width: 300px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+       .det:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+       .det a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+
+       .det img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+       .det:hover img {
+            transform: scale(1.05);
+        }
+
+       .game-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+       .det:hover.game-image {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header id="header">
+        <nav>
+            <div class="logo"><img src="images\icon\logo_Background.png" alt="logo"></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#portfolio_section">Portfolio</a></li>
+                <li><a href="#team_section">Team</a></li>
+                <li><a href="#services_section">Services</a></li>
+                <li><a href="#contactus_section">Contact</a></li>
+                <li><a class="active" href="interactive_games.html">Interactive Games</a></li>
+            </ul>
+            <a class="profile" href="profile1.php">Profile</a>
+            <img src="images/icon/menu.png" class="menu" alt="menu">
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="title" style="top: 10px; left: 400px;"> <!-- Add manual placement styles here -->
+        <h1>Explore Interactive Games</h1>
+    </div>
+
+    <!-- Game Links Section -->
+    <div class="course">
+        <!-- Place your interactive games here -->
+        <!-- Game 1 -->
+        <div class="det" style="position: absolute; top: 100px; left: 320px; width: 300px; height: 250px;">
+            <a href="https://www.testtubegames.com/velocityraptor.html" target="_blank">
+                <img src="images/games/velociraptor.png" alt="Velocity Raptor" class="game-image" style="width: 80%; height: 150px; object-fit: cover;">
+                <h2>Velocity Raptor (A Physics Game)</h2>
+            </a>
+        </div>
+        <!-- Game 2 -->
+        <div class="det" style="position: absolute; top: 300px; left: 620px;">
+            <a href="http://asteriskman7.github.io/dldtg/" target="_blank">
+                <img src="images\games\images.png" alt="Digital Logic Design The Game" class="game-image"style="width: 100%; height: 150px; object-fit: cover;">
+                <h2>Digital Logic Design The Game</h2>
+            </a>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="det" style="position: absolute; top: 500px; left: 920px;">
+            <a href="https://code.org/learn" target="_blank">
+                <img src="images\games\image.jpg" alt="Hour of Code" class="game-image"style="width: 110%; height: 150px; object-fit: cover;">
+                <h2>Hour of Code</h2>
+</a>
+        </div>
+
+        <!-- Add more games as needed -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="left-col">
+                <img src="images\icon\logo_Background.png" style="width: 200px;" alt="logo">
+            </div>
+            <div class="right-col">
+                <h1 style="color: #fff">Our Newsletter</h1>
+                <div class="border"></div>
+                <!-- Newsletter Form-->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional: JavaScript files or scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

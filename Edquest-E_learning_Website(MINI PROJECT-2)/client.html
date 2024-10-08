@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .cell.disabled {
+            cursor: not-allowed;
+        }
+        #status {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">Waiting for opponent...</div>
+    <div id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+
+    <script>
+        const userId = 'user_' + Math.random().toString(36).substr(2, 9); // Random user ID
+        const conn = new WebSocket('ws://localhost:8080');
+        let gameId, symbol;
+
+        conn.onopen = function() {
+            conn.send(JSON.stringify({ action: 'join', userId }));
+        };
+
+        conn.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+
+            if (data.action === 'wait') {
+                document.getElementById('status').textContent = 'Waiting for opponent...';
+                gameId = data.gameId;
+            } else if (data.action === 'start') {
+                document.getElementById('status').textContent = 'Game started! You are ' + data.symbol;
+                symbol = data.symbol;
+                gameId = data.gameId;
+                enableBoard();
+            } else if (data.action === 'move') {
+                updateBoard(data.board);
+                enableBoard();
+            } else if (data.action === 'end') {
+                document.getElementById('status').textContent = 'Game over! ' + (data.winner === userId ? 'You win!' : 'You lose!');
+                disableBoard();
+            }
+        };
+
+        document.querySelectorAll('.cell').forEach(cell => {
+            cell.addEventListener('click', () => {
+                if (!cell.classList.contains('disabled')) {
+                    const move = cell.getAttribute('data-index');
+                    conn.send(JSON.stringify({ action: 'move', userId, gameId, move }));
+                    disableBoard();
+                }
+            });
+        });
+
+        function updateBoard(board) {
+            document.querySelectorAll('.cell').forEach(cell => {
+                const index = cell.getAttribute('data-index');
+                cell.textContent = board[index] ? board[index] : '';
+            });
+        }
+
+        function enableBoard() {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.classList.remove('disabled');
+            });
+        }
+
+        function disableBoard() {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.classList.add('disabled');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "name": "akhil/tictactoe",
+    "description": "A simple Tic Tac Toe game",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Akhil\\Tictactoe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Akhil",
+            "email": "akhilteotia19@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "cboden/ratchet": "*"
+    }
+}

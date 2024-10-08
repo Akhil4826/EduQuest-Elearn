@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge">
+    <title>Edquest</title>
+    <meta name="desciption" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="loader.js"></script>
+
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('user_id');
+        console.log(userId); // Output
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        });
+        $(document).ready(function () {
+            // Check if the modal has been shown before
+            if (!localStorage.getItem('modalShown')) {
+                // Show the modal after 10 seconds
+                setTimeout(function () {
+                    $('#loginModal').show();
+                    // Set a flag in localStorage to indicate the modal has been shown
+                    localStorage.setItem('modalShown', 'true');
+                }, 10000);
+            }
+        });
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            $('#loginModal').hide();
+        }
+    </script>
+    <script>
+        document.getElementById('watch-now-button').addEventListener('click', function () {
+            var videoContainer = document.getElementById('video-container');
+            var iframe = document.getElementById('youtube-video');
+            iframe.src = ""; // URL with autoplay
+            videoContainer.style.display = 'block';
+        });
+
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of modal content
+        window.onclick = function (event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+
+    </script>
+    <style>
+        /* Modal CSS */
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        
+	/* Media queries for responsiveness */
+	@media (max-width: 768px) {
+		.head-container {
+			flex-direction: column;
+		}
+		.head-container .svg-image {
+			margin-top: 20px;
+			display: none; /* Hide the image */
+
+		}
+		.diffSection {
+			padding: 30px 10px;
+		}
+		footer .footer-container {
+			flex-direction: column;
+		}
+		footer .left-col,
+		footer .right-col {
+			width: 100%;
+			text-align: center;
+		}
+	}
+	
+        /* Navigation styles */
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #DF2771;
+        }
+
+        /* Header styles */
+        #header {
+            background-image: url('images/extra/header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding-top: 100px;
+            /* Adjust to accommodate nav height */
+            height: 600px;
+            /* Adjust height as needed */
+            position: relative;
+        }
+
+        .head-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 105px;
+            /* Adjust this value to move it higher */
+        }
+
+        .head-container .quote {
+            max-width: 1000px;
+            /* Increase the width to allow more space sideways */
+            margin-bottom: 20px;
+            /* Add space below the quote */
+        }
+
+
+        .head-container .quote p {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.758);
+            /* Change the text color */
+            font-style: normal;
+            /* Change the text style */
+            line-height: 1.6;
+            /* Increase line height for better readability */
+        }
+
+        .head-container .quote h5 {
+            font-size: 18px;
+            line-height: 1.6;
+            color: grey;
+            /* Change the text color */
+            font-style: italic;
+            /* Change the text style */
+            margin-top: 10px;
+            /* Add space above the text */
+        }
+
+        .head-container .svg-image {
+            width: 800px;
+            /* Increases the width of the image */
+            transform: rotateY(30deg) rotateX(20deg);
+            /* Applies the 3D rotations */
+            transition: transform 0.5s ease-in-out;
+            /* Smoothly transitions the transformation */
+        }
+
+        .head-container .svg-image:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        #video-container {
+            margin-top: 20px;
+            /* Optional: adjust the spacing as needed */
+        }
+
+        .head-container .play {
+            margin-top: 20px;
+        }
+
+        .head-container .play img {
+            width: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .head-container .play img:hover {
+            transform: scale(1.1);
+        }
+
+        .head-container .play span {
+            color: #DF2771;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .head-container .play span:hover {
+            color: #FA4B37;
+        }
+
+        /* Modal and overlay styles */
+        #loginModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            /* Ensure modal appears above other content */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        #loginModalContent {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Section styles */
+        .diffSection {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transform: rotateY(5deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .diffSection:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #2E3D49;
+            color: #fff;
+            padding: 50px 0;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left-col {
+            flex: 1;
+            text-align: left;
+        }
+
+        .right-col {
+            flex: 1;
+            text-align: left;
+        }
+
+        .footer-logo {
+            width: 200px;
+            /* Adjust width as needed */
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin-right: 10px;
+        }
+
+        .right-col h1 {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .border {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 15px;
+        }
+
+        .right-col p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form .txtb {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .newsletter-form .btn {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* Modal and overlay styles */
+        #loginModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 50px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .check-box {
+            margin-top: 16px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        #loginModalContent {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #aaa;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .head-container {
+                flex-direction: column;
+            }
+
+            .head-container .svg-image {
+                margin-top: 20px;
+            }
+
+            .diffSection {
+                padding: 30px 10px;
+            }
+
+            footer .footer-container {
+                flex-direction: column;
+            }
+
+            footer .left-col,
+            footer .right-col {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+    </style>
+
+    </script>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header id="header">
+        <nav>
+            <div class="logo"><img src="images\icon\logo_Background.png" alt="logo"></div>
+            <ul>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="#portfolio_section">Portfolio</a></li>
+                <li><a href="#team_section">Team</a></li>
+                <li><a href="#services_section">Services</a></li>
+                <li><a href="#contactus_section">Contact</a></li>
+                <li><button onclick="openLoginModal()">Login</button></li>
+            </ul>
+
+        </nav>
+        <div class="head-container">
+            <div class="quote">
+                <p>The beautiful thing about learning is that nobody can take it away from you</p>
+                <h5>Education is the process of facilitating learning, or the acquisition of knowledge, skills, values,
+                    beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and
+                    directed research!</h5>
+                <div class="play">
+                    <div class="head-container">
+                        <img src="images/icon/play.png" alt="play" id="play-icon">
+                        <span><button id="watch-now-button">Watch Now</button></span>
+                        <div id="video-container" style="display:none;">
+                            <iframe id="youtube-video" width="700" height="394" src="" frameborder="0"
+                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="svg-image">
+                <img src="images/extra/svg1.jpg" alt="svg">
+            </div>
+        </div>
+        <div class="side-menu" id="side-menu">
+            <div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+            <div class="user">
+                <img src="images\creator\AKHIL_TEOTIA.jpg" alt="Username">
+                <p>akhilteotia19</p>
+            </div>
+            <ul>
+                <li><a href="#about_section">About</a></li>
+                <li><a href="#portfolio_section">Portfolio</a></li>
+                <li><a href="#team_section">Team</a></li>
+                <li><a href="#services_section">Services</a></li>
+                <li><a href="#contactus_section">Contact</a></li>
+                <li><a href="#feedBACK">Feedback</a></li>
+            </ul>
+        </div>
+    </header>
+ <!-- Notification Modal -->
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Welcome to Edquest!</h2>
+        </div>
+        <div class="modal-body">
+            <p>Log in now to enjoy exclusive benefits such as:</p>
+            <ul>
+                <li>Access to EdQuest's AI chatbot for personalized learning assistance</li>
+                <li>Interactive games for a fun and engaging learning experience</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <!-- Button now calls openLoginModal directly -->
+            <button onclick="openLoginModal()" class="login-btn">Open Login</button>
+        </div>
+    </div>
+</div>
+    <style>
+        /* General modal styling */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal content box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        /* Modal header */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
+        }
+
+        /* Close button */
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal body */
+        .modal-body {
+            padding: 20px 0;
+        }
+
+        .modal-body p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .modal-body ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 10px;
+        }
+
+        /* Modal footer */
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        /* Login button */
+        .login-btn {
+            background-color: #007BFF;
+            /* Blue background */
+            color: white;
+            /* White text */
+            padding: 12px 24px;
+            /* Padding inside the button */
+            border: none;
+            /* No border */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            font-size: 16px;
+            /* Larger font size */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Soft shadow */
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+            /* Darker blue on hover */
+        }
+    </style>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <!-- Login Form -->
+            <form id="loginForm" class="input-group"
+                action="http://localhost:81/verify/Edquest-E_learning_Website(MINI PROJECT-2)/login1.php" method="POST">
+                <div class="inp">
+                    <img src="images/icon/user.png"><input type="text" name="identifier" class="input-field"
+                        placeholder="Email or Mobile Number" required="required">
+                </div>
+                <div class="inp">
+                    <img src="images/icon/password.png"><input type="password" name="password" class="input-field"
+                        placeholder="Password" required="required">
+                </div>
+                <input type="checkbox" class="check-box">Remember Password
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+
+            <!-- Redirect to registration button -->
+            <button onclick="redirectToRegistration()" class="register-btn">Register Now</button>
+            <p class="register-info">If you haven't registered yet, please register to log in.</p>
+        </div>
+    </div>
+    <style>
+        /* Styling for the Register Now button */
+        .register-btn {
+            background-color: #4CAF50;
+            /* Green background */
+            color: white;
+            /* White text */
+            padding: 10px 20px;
+            /* Padding inside the button */
+            border: none;
+            /* No border */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            margin-top: 10px;
+            /* Spacing from the login form */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
+        }
+
+        .register-btn:hover {
+            background-color: #45a049;
+            /* Darker green on hover */
+        }
+
+        /* Styling for the registration information text */
+        .register-info {
+            font-size: 14px;
+            /* Smaller font size */
+            color: #666;
+            /* Gray text */
+            margin-top: 85px;
+            /* Spacing from the Register Now button */
+            margin-left: 155px;
+        }
+    </style>
+
+
+    <script>
+        // Function to open notification modal
+        function openNotificationModal() {
+            document.getElementById('notificationModal').style.display = 'block';
+        }
+
+        // Function to close notification modal
+        function closeModal() {
+            document.getElementById('notificationModal').style.display = 'none';
+        }
+
+        // Function to open login modal and close notification modal
+        function openLoginModal() {
+            // Close notification modal first
+            closeModal();
+            // Open login modal
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        // Function to close login modal
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        // Placeholder function for Google sign-in (example)
+        function google() {
+            // Implement Google sign-in logic here
+            console.log('Signing in with Google...');
+        }
+        function redirectToRegistration() {
+            window.open('login.html ', '_blank');                                                                                                                                   
+            // Opens the login page in a new tab
+        }
+
+
+        // Automatically open notification modal on page load
+        window.onload = function () {
+            openNotificationModal();
+        };
+    </script>
+
+
+    <!-- Some Popular Subjects -->
+    <div class="title">
+        <span>Courses on EdQuest</span>
+    </div>
+    <br><br>
+    <div class="course">
+        <center>
+            <div class="cbox">
+                <div class="det"><a href="subjects/jee.html"><img src="images/courses/book.png">JEE Preparation</a>
+                </div>
+                <div class="det"><a href="subjects/gate.html"><img src="images/courses/d1.png">GATE Preparation</a>
+                </div>
+                <div class="det"><a href="subjects/jee.html#sample_papers"><img src="images/courses/paper.png">Sample
+                        Papers</a></div>
+                <div class="det"><a href="subjects/quiz.html"><img src="images/courses/d1.png">Daily Quiz</a></div>
+            </div>
+        </center>
+        <div class="cbox">
+            <div class="det"><a href="subjects/computer_courses.html"><img src="images/courses/computer.png">Computer
+                    Courses</a></div>
+            <div class="det"><a href="subjects/computer_courses.html#data"><img src="images/courses/data.png">Data
+                    Structures</a></div>
+            <div class="det"><a href="subjects/computer_courses.html#algo"><img
+                        src="images/courses/algo.png">Algorithm</a></div>
+            <div class="det det-last"><a href="subjects/computer_courses.html#projects"><img
+                        src="images/courses/projects.png">Projects</a></div>
+        </div>
+    </div>
+
+
+    <!-- ABOUT -->
+    <div class="diffSection" id="about_section">
+        <center>
+            <p style="font-size: 50px; padding: 100px">About</p>
+        </center>
+        <div class="about-content">
+            <div class="side-image">
+                <img class="sideImage" src="images/extra/e3.jpg">
+            </div>
+            <div class="side-text">
+                <h2>What you think about us ?</h2>
+                <p>Education is the process of facilitating learning, or the acquisition of knowledge, skills, values,
+                    beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and
+                    directed research.<br> Educational website can include websites that have games, videos or topic
+                    related resources that act as tools to enhance learning and supplement classroom teaching. These
+                    websites help make the process of learning entertaining and attractive to the student, especially in
+                    today's age. <br>Using HTML(HyperText Markup Language), CSS(Cascading Style Sheet), JavaScript, we
+                    can make learning more easier and in a interesting way.</p>
+            </div>
+        </div>
+    </div>
+<!-- PORTFOLIO -->
+<div class="diffSection" id="portfolio_section">
+    <center>
+        <p style="font-size: 50px; padding: 100px; padding-bottom: 40px;">Portfolio</p>
+    </center>
+    <div class="content">
+        <p>
+            “Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” “Your
+            attitude, not your aptitude, will determine your altitude.” “If you think education is expensive, try
+            ignorance.” “The only person who is educated is the one who has learned how to learn …and change.”
+        </p>
+    </div>
+</div>
+<div class="extra">
+    <p>We're increasing this data every year</p>
+    <div class="smbox">
+        <span>
+            <center>
+                <div class="data" id="visitCount">154</div>
+                <div class="det">Students Visit</div>
+            </center>
+        </span>
+        <span>
+            <center>
+                <div class="data">21</div>
+                <div class="det">Total Courses</div>
+            </center>
+        </span>
+        <span>
+            <center>
+                <div class="data">15</div>
+                <div class="det">Placed Students</div>
+            </center>
+        </span>
+        <span>
+            <center>
+                <div class="data">27</div>
+                <div class="det">Total Projects</div>
+            </center>
+        </span>
+    </div>
+</div>
+
+<script>
+    // Check if visit count exists in localStorage
+    if (localStorage.getItem('visitCount')) {
+        // Increment the visit count
+        localStorage.setItem('visitCount', Number(localStorage.getItem('visitCount')) + 1);
+    } else {
+        // Set the initial visit count to 1
+        localStorage.setItem('visitCount', 1);
+    }
+
+    // Display the visit count in the Enrolled Students column
+    document.getElementById('visitCount').innerText = localStorage.getItem('visitCount');
+</script>
+
+
+
+    <!-- TEAM -->
+    <div class="diffSection" id="team_section">
+        <center>
+            <p style="font-size: 50px; padding-top: 100px; padding-bottom: 60px;">We're the Creators</p>
+        </center>
+        <div class="totalcard">
+            <div class="card">
+                <center><img src="images\creator\AKHIL_TEOTIA.jpg"></center>
+                <center>
+                    <div class="card-title">Team-7</div>
+                    <div id="detail">
+                        <p>“ You can teach a student a lesson for a day; but if you can teach him to learn by creating
+                            curiosity, he will continue the learning process as long as he lives “</p>
+                        <div class="duty"></div>
+                        <a href=" https://wa.me/+919535775545" target="_blank"><button class="btn-roshan">Follow
+                                +</button></a>
+                    </div>
+                </center>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICES -->
+        <div class="service-swipe">
+            <div class="diffSection" id="services_section">
+                <center>
+                    <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Services</p>
+                </center>
+            </div>
+            <a href="subjects/computer_courses.html">
+                <div class="s-card"><img src="images/icon/computer-courses.png">
+                    <p>Free Online Computer Courses</p>
+                </div>
+            </a>
+            <a href="subjects/jee.html">
+                <div class="s-card"><img src="images/icon/brainbooster.png">
+                    <p>Building Concepts for Competitive Exams</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="s-card"><img src="images/icon/online-tutorials.png">
+                    <p>Online Video Lectures</p>
+                </div>
+            </a>
+            <a href="subjects/jee.html#sample_papers">
+                <div class="s-card"><img src="images/icon/papers.jpg">
+                    <p>Sample Papers of Various Competitive Exams</p>
+                </div>
+            </a>
+            <a href="#loginModal">
+                <div class="s-card"><img src="images\games\gamepad.png">
+                    <p>Interactive games</p>
+                </div>
+            </a>
+            <a href="#contactus_section">
+                <div class="s-card"><img src="images/icon/discussion.png">
+                    <p>Discussion with Our Tutors & Mentors</p>
+                </div>
+            </a>
+            <a href="subjects/quiz.html">
+                <div class="s-card"><img src="images/icon/q1.png">
+                    <p>Daily Brain Teasing Questions to Improve IQ</p>
+                </div>
+            </a>
+            <a href="#contactus_section">
+                <div class="s-card"><img src="images/icon/help.png">
+                    <p>24x7 Online Support</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Reviews by Students -->
+        <div id="makeitfull">
+            <a href="#review_section"><img src="images/icon/makeitfull.png"></a>
+        </div>
+        <div class="review">
+            <div class="diffSection" id="review_section">
+                <center>
+                    <p style="font-size: 40px; padding: 100px; padding-bottom: 40px; color: #2E3D49;">What the Students
+                        Say About Us?</p>
+                </center>
+            </div>
+            <div class="rev-container">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="images/creator/humanNotExist1.jpg">
+                        <p>Sophie Daniel</p>
+                        <h6>Java</h6>
+                        <div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"></div>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Review:</p>
+                        <p id="content">
+                            I studied Java Fundamenetal from this webiste. It was a great experience. The brain teasers
+                            and assignments, actually the whole lot of content was really good. Some problems were
+                            challenging yet interesting.Video Tutorial Was explained very well where ever I stuck...
+                        </p>
+                    </div>
+                </div>
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="images/creator/humanNotExist2.jpg">
+                        <p>Clayton Clair</p>
+                        <h6>C/C++</h6>
+                        <div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"></div>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Review:</p>
+                        <p id="content">
+                            When I was watching "Dear Zindagi", I could relate Sharukh Khan to Arnav Bhaiya. The way
+                            Sharukh Khan was giving life lessons to Alia Bhatt, in the same way this website gives us
+                            coding life lessons which will guide you throughout your code life...
+                        </p>
+                    </div>
+                </div>
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="images/creator/humanNotExist3.jpg">
+                        <p>Devyn Sethi</p>
+                        <h6>JEE</h6>
+                        <div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"></div>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Review:</p>
+                        <p id="content">
+                            EdQuest was an amazing experience for me. I belong to electronics department and had a
+                            little experience in coding but I think it has helped me think things through in a much more
+                            analytical manner. Coding is important no matter which branch you are in. It gives you a
+                            better understanding about how to approach a problem...
+                        </p>
+                    </div>
+                </div>
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="images/creator/humanNotExist4.jpg">
+                        <p>Rylee Phillips</p>
+                        <h6>Python</h6>
+                        <div class="rating"><img src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"><img src="images/icon/star.png"><img
+                                src="images/icon/star.png"></div>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Review:</p>
+                        <p id="content">
+                            This was my first complete course at coding blocks. I attended the Python course in Winter
+                            2020 and loved it which made me join the full course.I would certainly recommend this to
+                            anyone...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diffSection" id="contactus_section">
+            <center>
+                <p style="font-size: 50px; padding: 100px">Contact Us</p>
+            </center>
+            <div class="csec"></div>
+            <div class="back-contact">
+                <div class="cc">
+                    <form action="mailto:akhilteotia19@gmail.com" method="post" enctype="text/plain">
+                        <label>First Name <span class="imp">*</span></label><label style="margin-left: 185px">Last Name
+                            <span class="imp">*</span></label><br>
+                        <center>
+                            <input type="text" name="" style="margin-right: 10px; width: 175px"
+                                required="required"><input type="text" name="lname" style="width: 175px"
+                                required="required"><br>
+                        </center>
+                        <label>Email <span class="imp">*</span></label><br>
+                        <input type="email" name="mail" style="width: 100%" required="required"><br>
+                        <label>Message <span class="imp">*</span></label><br>
+                        <input type="text" name="message" style="width: 100%" required="required"><br>
+                        <label>Additional Details</label><br>
+                        <textarea name="addtional"></textarea><br>
+                        <button type="submit" id="csubmit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- FEEDBACK -->
+        <div class="title2" id="feedBACK">
+            <span>Give Feedback</span>
+            <div class="shortdesc2">
+                <p>Please share your valuable feedback to us</p>
+            </div>
+        </div>
+
+        <div class="feedbox">
+            <div class="feed">
+                <form action="mailto:akhilteotia19@gmail.com" method="post" enctype="text/plain">
+                    <label>Your Name</label><br>
+                    <input type="text" name="" class="fname" required="required"><br>
+                    <label>Email</label><br>
+                    <input type="email" name="mail" required="required"><br>
+                    <label>Additional Details</label><br>
+                    <textarea name="addtional"></textarea><br>
+                    <button type="submit" id="csubmit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Sliding Information -->
+        <marquee style="background: linear-gradient(to right, #FA4B37, #DF2771); margin-top: 50px;" direction="left"
+            onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
+            <div class="marqu">“Education is the passport to the future, for tomorrow belongs to those who prepare for
+                it today.” “Your attitude, not your aptitude, will determine your altitude.” “If you think education is
+                expensive, try ignorance.” “The only person who is educated is the one who has learned how to learn …and
+                change.”</div>
+        </marquee>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <img src="images\icon\logo_Background.png" style="width: 200px;">
+                    <div class="logo"></div>
+                    <div class="social-media">
+                        <a href="#"><img src="images/icon\fb.png"></a>
+                        <a href="#"><img src="images/icon\insta.png"></a>
+                        <a href="#"><img src="images/icon\tt.png"></a>
+                        <a href="#"><img src="images/icon\ytube.png"></a>
+                        <a href="#"><img src="images/icon\linkedin.png"></a>
+                    </div><br><br>
+                    <p class="rights-text">Copyright © 2024 Created By Akhil Teotia</p>
+                    <br>
+                    <p><img src="images/icon/location.png"> Malnad College Of Engineering<br>Hassan, Karnataka-573201
+                    </p><br>
+                    <p><img src="images/icon/phone.png"> +91-9535-775-545<br><img src="images/icon/mail.png">&nbsp;
+                        akhilteotia19@gmail.com</p>
+                </div>
+                <div class="right-col">
+                    <h1 style="color: #fff">Our Newsletter</h1>
+                    <div class="border"></div><br>
+                    <p>Enter Your Email to get our News and updates.</p>
+                    <form class="newsletter-form">
+                        <input class="txtb" type="email" placeholder="Enter Your Email">
+                        <input class="btn" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+        </footer>
+
+</body>
+
+</html>

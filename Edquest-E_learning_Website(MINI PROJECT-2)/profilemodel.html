@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="stylesprofile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Add your CSS here */
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img id="profile-image" src="" alt="Profile Image" class="profile-image">
+        <div class="profile-details">
+            <!-- Your profile details here -->
+        </div>
+        <button id="update-profile-pic-btn">Update Profile Picture</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let userId = urlParams.get('user_id') || 43; // Default user_id if not provided
+            localStorage.setItem('userId', userId);
+
+            function fetchProfileData() {
+                $.ajax({
+                    url: 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/profile.php',
+                    type: 'GET',
+                    data: { user_id: userId },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data) {
+                            $('#profile-name').text(data.fullname || 'N/A');
+                            $('#profile-description').text(data.interests || 'N/A');
+                            $('#profile-location').text(`Location: ${data.location || 'N/A'}`);
+                            $('#profile-email').text(`Email: ${data.email || 'N/A'}`);
+                            $('#profile-age').text(`Age: ${data.age || 'N/A'}`);
+                            $('#profile-course').text(`Course: ${data.course_name || 'N/A'}`);
+                            $('#profile-start-date').text(`Start Date: ${data.start_date || 'N/A'}`);
+                            $('#profile-duration').text(`Duration: ${data.duration || 'N/A'}`);
+                            $('#profile-contact').text(`Contact: ${data.contact || 'N/A'}`);
+                            
+                            // Display the profile picture
+                            const profileImagePath = data.profile_image_path || ''; // Path from database
+                            if (profileImagePath) {
+                                $('#profile-image').attr('src', 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/get_profile_image.php?user_id=' + userId);
+                            } else {
+                                $('#profile-image').attr('src', ''); // No default image
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching the profile:", xhr.statusText);
+                    }
+                });
+            }
+
+            fetchProfileData();
+
+            $('#update-profile-pic-btn').on('click', function() {
+                var fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'image/*';
+                fileInput.onchange = function() {
+                    var file = fileInput.files[0];
+                    var formData = new FormData();
+                    formData.append('profile_image', file);
+                    formData.append('user_id', userId);
+
+                    $.ajax({
+                        url: 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/update_profile_picture.php',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function(data) {
+                            var response = JSON.parse(data);
+                            if (response.profile_image_path) {
+                                $('#profile-image').attr('src', 'http://localhost:81/verify/Edquest-E_learning_Website(MINI%20PROJECT-2)/update_profile_picture_db.php?user_id=' + userId);
+                                console.log("Profile picture updated");
+                            } else {
+                                console.error("Error updating profile picture:", response.error);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error updating the profile picture:", xhr.responseText);
+                        }
+                    });
+                };
+                fileInput.click();
+            });
+        });
+    </script>
+</body>
+</html>

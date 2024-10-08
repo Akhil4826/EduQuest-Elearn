@@ -1,0 +1,12 @@
+{
+    "name": "akhil/tictactoe",
+    "require-dev": {
+        "no": "no"
+    },
+    "autoload": {
+        "psr-4": {
+            "Akhil\\Tictactoe\\": "src/"
+        }
+    },
+    "require": {}
+}

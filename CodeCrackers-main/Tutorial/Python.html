@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<!-- Made by Udolf in 3 days-->
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <title>Codecrackers-Python Tutorial</title>
+    <!-- links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Java_script/css/bootstrap.min.css">
+    <script src="Java_script/js/bootstrap.js"></script>
+    <script src="Java_script/jquery-3.2.1.js"></script>
+    <script src="javaw.js"></script>
+    <link rel="stylesheet" href="cssw.css" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   -->
+
+    <style>
+        .box {
+            width: 50%;
+            height: auto;
+            border: 1px solid black;
+            padding: 10px;
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+            border: 3px solid lightblue;
+        }
+
+        .dropdown1 {
+            position: relative;
+            justify-content: center;
+            float: right;
+            background-color: #0047AB;
+            color: #ffffff;
+        }
+
+        .dropdown1-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .dropdown1:hover .dropdown1-content {
+            display: block;
+            background-color: #707070;
+        }
+
+        .dropdown1-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown1-content a:hover {
+            background-color: #f1f1f1
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="menu_icon dropdown"><a class=" white_c" id="menu_icon">&#9776;</a></li>
+            <a href="../home.php">
+                <li id="home" class="glyphicon glyphicon-home left">
+                    <div></div>
+                </li>
+            </a>
+
+            <a href="python.html">
+                <li class="left">PYTHON</li>
+            </a>
+            <a href="html1.html">
+                <li class="left">HTML</li>
+            </a>
+            <a href="css.html">
+                <li class="left">CSS</li>
+            </a>
+            <a href="js.html">
+                <li class="left">JAVASCRIPT</li>
+            </a>
+            <a href="sql.html">
+                <li class="left">SQL</li>
+            </a>
+            <a href="php.html">
+                <li class="left">PHP</li>
+            </a>
+
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Online Compiler
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="ide\python\python\python.html">PYTHON</a></li>
+                  <li><a class="dropdown-item" href="ide\js\js\js.html">JAVASCRIPT</a></li>
+                  <li><a class="dropdown-item" href="ide\php\pHP\php.html">PHP</a></li>
+                  <li><a class="dropdown-item" href="ide\sql\sql\sql.html">SQL</a></li>          
+                </ul>
+              </li> -->
+
+            <!-- <h2>Dropdown Menu</h2>
+            <p>Move the mouse over the button to open the dropdown menu.</p> -->
+
+            <div class="dropdown1">
+                <!-- <button>Online Compiler</button> -->
+                <li>Online Compiler</li>
+                <div class="dropdown1-content">
+                    <a href="..\ide\python\python\python.html">PYTHON</a>
+                    <a href="..\ide\js\js\js.html">JAVASCRIPT</a>
+                    <a href="..\ide\php\pHP\php.html">PHP</a>
+                    <a href="..\ide\sql\sql\sql.html">SQL</a>
+                    <a href="..\ide\html\html\html1.html">HTML</a>
+                    <a href="..\ide\css\css\css.html">CSS</a>
+
+                </div>
+            </div>
+
+        </ul>
+
+    </nav>
+
+    <!-- NAV ends here pretty big though -->
+    <div class="left-aside" style="padding-top: 2%;">
+        <ul>
+            <li id="head2">Python Tutorial</li>
+            <a href="#intro">
+                <li> <input type="checkbox"> Python Introduction</li>
+            </a>
+            <a href="#intro">
+                <li> <input type="checkbox"> What is Python?</li>
+            </a>
+            <a href="#syntex">
+                <li> <input type="checkbox"> Python Basic Syntax</li>
+            </a>
+            <a href="#variables">
+                <li> <input type="checkbox"> Python Variables</li>
+            </a>
+            <a href="#datatypes">
+                <li> <input type="checkbox"> Python Data Types</li>
+            </a>
+            <a href="#list">
+                <li> <input type="checkbox"> Python Lists </li>
+            </a>
+            <a href="#string">
+                <li> <input type="checkbox"> Python Strings</li>
+            </a>
+            <a href="#tuples">
+                <li> <input type="checkbox"> Python Tuples</li>
+            </a>
+            <a href="#set">
+                <li> <input type="checkbox"> Python Sets</li>
+            </a>
+            <a href="#dictionary">
+                <li> <input type="checkbox"> Python Dictionary</li>
+            </a><a href="#boolean">
+                <li> <input type="checkbox"> Python Boolean</li>
+            </a>
+            <a href="#conditional">
+                <li> <input type="checkbox"> Python If and Else</li>
+            </a>
+            <a href="#loops">
+                <li> <input type="checkbox"> Python for Loops</li>
+            </a>
+            <a href="#loops">
+                <li> <input type="checkbox"> Python While Loop</li>
+            </a>
+            <a href="#functions">
+                <li> <input type="checkbox"> Python Functions</li>
+            </a>
+            <a href="#array">
+                <li> <input type="checkbox"> Python Arrays</li>
+            </a>
+            <a href="#oops">
+                <li> <input type="checkbox"> Python OOPS Concept</li>
+            </a>
+            <a href="#file">
+                <li> <input type="checkbox"> Python File Handling</li>
+            </a>
+            <a href="../quiz/py.html">
+                <li> <input type="checkbox"> Python Quiz</li>
+            </a>
+
+
+
+
+
+
+        </ul>
+    </div>
+    <!--left aside menu finished yo! yo! yo! -->
+
+    <div class="row" id="big-cont">
+        <div id="main-content" class="col-md-offset-2 col-md-10">
+            <div class="row">
+                <div class="col-md-10">
+                    <header id="heading1">Python Tutorial</header>
+                    <div class="smallfont" id="gback">
+                        Welcome to our Python Tutorial Platform! This is the perfect place for beginners who want to
+                        learn Python from scratch. Python is a powerful, easy-to-read, and versatile programming
+                        language.
+                        As you start your programming journey with us, you'll explore various Python concepts through
+                        clear
+                        explanations and engaging examples.
+
+
+                    </div>
+
+                    <section id="intro">
+                        <div id="heading1">Introduction</div>
+                        <div class="vsmall"> Here's a quick overview of some basic Python concepts and examples to give
+                            you a glimpse of what you'll learn:
+
+                            Hello, World!:
+                            Your first Python program is as simple as printing a message to the console.
+                            <div class="box"> <b>print("Hello, World!")</b></div>
+                    </section>
+
+                    <section id="syntex">
+                        <div id="heading1">Python Basic Syntax:</div>
+                        <div class="vsmall"> Python is a powerful and easy-to-read programming language, making it an
+                            excellent choice
+                            for
+                            beginners. Its syntax is designed to be simple and consistent, allowing you to focus on
+                            learning
+                            programming concepts instead of struggling with complex language rules.
+                            <br>
+                            Here are some key aspects of Python syntax with examples and comments to help novice
+                            programmers
+                            understand the language:
+                            <br>
+                            <b>Indentation:</b>
+                            <br>
+                            Python uses indentation to define code blocks, such as functions, loops, and conditional
+                            statements. This makes the code more readable and easy to understand.
+                            <br>
+                            <div class="box"> <b># Indentation example with an if statement <br>
+                                    x = 5 <br>
+                                    if x >2: <br>
+                                    # This block of code will execute if x > 2 <br>
+                                    print("x is greater than 2") <br>
+                                    else: <br>
+                                    # This block of code will execute if x <= 2 <br>
+                                        print("x is less than or equal to 2")
+                                </b></div>
+                    </section>
+
+
+                    <section id="variables">
+                        <header id="heading1">Variables</header>
+                        <div class="vsmall">Variables are used to store data, and you can assign values to them without
+                            declaring
+                            their data type.</div>
+                        <div class="box"> <b>name = "Alice" <br>
+                                age = 25 <br>
+                                pi = 3.14159
+                            </b></div>
+                    </section>
+
+                    <section id="datatypes">
+                        <header id="heading1">Data Types</header>
+                        <div class="vsmall">Python supports several built-in data types, such as integers, floats, and
+                            strings.</div>
+                        <div class="box"> <b>integer_example = 42 <br>
+                                float_example = 3.14 <br>
+                                string_example = "Hello, Python!"
+                            </b></div>
+                    </section>
+
+                    <section>
+                        <header id="heading1">Lists</header>
+                        <div class="vsmall">Lists are ordered, mutable collections of items that can contain elements of
+                            different data types.</div>
+                        <div class="box"> <b>fruits = ["apple", "banana", "cherry"] <br>
+                                numbers = [1, 2, 3, 4, 5]
+                            </b></div>
+                    </section>
+
+                    <section id="loops">
+                        <header id="heading1">Loops</header>
+                        <div class="vsmall">Iterate over items in a list or a range of numbers using for and while
+                            loops.</div>
+                        <div class="box"> <b># For loop example <br>
+                                for number in numbers: <br>
+                                print(number) <br>
+
+                                # While loop example <br>
+                                count = 1 <br>
+                                while count <= 5: <br>
+                                    print(count) <br>
+                                    count += 1
+                            </b></div>
+                    </section>
+
+                    <section id="functions">
+                        <header id="heading1">Functions</header>
+                        <div class="vsmall">Create reusable pieces of code by defining functions.</div>
+                        <div class="box"> <b>defgreet(name): <br>
+                                returnf"Hello, {name}!" <br>
+
+                                print(greet("Alice"))
+                            </b></div>
+                        <div class="vsmall">As you progress through our platform, you'll delve into more
+                            advanced topics and build your Python skills step by step. Get ready
+                            to explore the exciting world of Python programming!</div>
+                    </section>
+
+
+
+                    <div class="vsmall"> <b>Python Code Editor and Compilers:</b>
+                        <br>
+                        <br>
+                        Let's start with an overview of code editors, compilers, and how
+                        they work in the context of Python programming.
+                        <br><br>
+                        Code Editors: A code editor is a software tool designed for
+                        writing and editing code. Code editors provide essential
+                        features that make writing code easier and more efficient, such
+                        as syntax highlighting, auto-indentation, and code completion.
+                        Some popular code editors for Python programming include:
+                        <br>
+                        <br>
+
+                        <ul>
+                            <li> Visual Studio Code (VSCode)</li>
+                            <li>Sublime Text</li>
+                            <li>Atom</li>
+                            <li>PyCharm (specifically designed for Python)</li>
+                            <li>Jupyter Notebook (useful for data science and
+                                interactive programming)</li>
+                        </ul>
+
+
+
+                        <br>
+                        <br>
+                        These editors can be customized with plugins or extensions to
+                        support specific programming languages, themes, and other
+                        features that enhance your coding experience.
+                        <br><br>
+                        Interpreters and Compilers: Python is an interpreted language,
+                        which means that the code is executed directly by an interpreter
+                        without being compiled into machine code first. The interpreter
+                        translates the Python code into machine-readable instructions
+                        line by line as it runs the program. This process is different
+                        from compiled languages like C or Java, where the code is first
+                        compiled into machine code before being executed.
+                        <br><br>
+                        <br> The primary Python interpreter is called CPython, which is
+                        the reference implementation of the language written in C. Other
+                        interpreters, such as Jython (Python for Java) and IronPython
+                        (Python for .NET), are also available for specific use cases.
+                        <br><br>
+                        How it Works: Here's a simple overview of how code editors, interpreters, and compilers work
+                        together when programming in Python:<br><br>
+
+                        Step 1: Write your Python code using a code editor of your choice. The code editor helps you
+                        write
+                        clean, well-formatted code with syntax highlighting, auto-indentation, and other useful
+                        features.
+                        <br>
+                        Step 2: Save your Python code with a .py file extension (e.g., hello_world.py). This indicates
+                        that
+                        the file contains Python source code.
+                        <br>Step 3: Run your Python code using the Python interpreter. You can do this by opening a
+                        terminal
+                        or command prompt, navigating to the directory containing your .py file, and running the
+                        following
+                        command: python hello_world.py. The Python interpreter will execute your code line by line and
+                        display any output or errors.
+                        <br><br>By understanding how to code editors, interpreters, and compilers work together, you can
+                        effectively write, debug, and distribute Python applications. As you progress through your
+                        Python
+                        learning journey, you'll become more familiar with various tools and techniques to improve your
+                        coding efficiency and productivity.
+                        <br><br>
+                        In code cracker, You can run the Python code without installing any IDE(Integrated development
+                        environment) or code editor because our website is a code editor and a compiler.
+                        Click the below link to explore the code editor and Python compiler.
+
+                        <br>
+
+                        <br><br>
+
+                        <section id="comments">
+                            <header id="heading1">Comments:</header>
+                            <div class="vsmall">Use comments to explain your code and make it easier to understand.
+                                Single-line comments start
+                                with a hash (#) symbol, while multi-line comments use triple quotes (''' or """).</div>
+                            <div class="box"> <b>name = "Alice" <br>
+                                    age = 25 <br>
+                                    pi = 3.14159
+                                </b></div>
+                        </section>
+                        <b>Comments:</b> <br>
+                        Use comments to explain your code and make it easier to understand. Single-line comments start
+                        with a hash (#) symbol, while multi-line comments use triple quotes (''' or """).
+                        <br>
+                        <div class="box"> <b># This is a single-line comment explaining the code below <br>
+                                x = 5 <br>
+                                <br>
+                                ''' <br>
+                                This is a multi-line comment <b></b>
+                                describing the purpose and functionality of the code below <br>
+                                ''' <br>
+                                defsquare(number): <br>
+                                return number * number <b></b>
+
+                            </b></div>
+                        <br><br>
+                        <b>Variables:</b> <br>
+                        Variables store data and can be assigned values using the equal sign (=). Python automatically
+                        determines the variable's data type based on the assigned value.
+                        <br>
+                        <div class="box"> <b># Assigning values to variables <br>
+                                name = "Alice"# String <br>
+                                age = 25# Integer <br>
+                                pi = 3.14159# Float
+
+                            </b></div>
+
+                        <br><br>
+                        <b>Statements:</b><br>
+                        Python statements are instructions that the Python interpreter can execute. Statements are
+                        typically written on separate lines, but you can use a semicolon (;) to separate multiple
+                        statements on a single line.
+                        <br>
+                        <div class="box"> <b># Separate statements on different lines <br>
+                                x = 5 <br>
+                                y = 10 <br>
+                                sum = x + y <br>
+                                <br>
+                                # Multiple statements on a single line <br>
+                                x = 5; y = 10; sum = x + y <br>
+
+                            </b></div>
+                        <br><br>
+                        <section id="function">
+
+                            <br>
+                            <br>
+                            <b>Python Variables:</b>
+                            <br>
+
+                            In Python, a variable is a reference to a memory location that stores data. Variables are
+                            used
+                            to hold values for later use in a program. Python is a dynamically-typed language, meaning
+                            you
+                            don't need to declare a variable's data type explicitly. The interpreter automatically
+                            determines the data type based on the value you assign to the variable.
+                            <br>
+
+                            <b>Variable Assignment:</b><br>
+                            To create a variable in Python, you simply assign a value to it using the equal sign (=).
+                            The
+                            variable name must start with a letter or an underscore and can contain letters, numbers,
+                            and
+                            underscores. Python variable names are case-sensitive.
+                            <br>
+                            <div class="box"> <b># Assigning values to variables <br>
+                                    name = "Alice" <br>
+                                    age = 25 <br>
+                                    pi = 3.14159 <br>
+                                    is_adult = True
+
+
+                                </b></div>
+                            <br>
+                            <b>Variable Types:</b>
+                            <br>
+                            Python supports several data types, such as integers, floats, strings, and booleans. The
+                            data
+                            type of a variable is automatically determined by the value assigned to it.
+                            <br>
+                            <div class="box"> <b>integer_variable = 42 <br>
+                                    float_variable = 3.14 <br>
+                                    string_variable = "Hello, Python!" <br>
+                                    boolean_variable = True <br>
+
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Variable Reassignment:</b>
+                            <br>
+                            You can reassign a variable to a new value, and the new value can even have a different data
+                            type. Python will update the variable's reference to point to the new value's memory
+                            location.
+                            <br>
+                            <div class="box"> <b>
+                                    x = 5# x is an integer <br>
+                                    x = "hello"# x is now a string
+
+                                </b></div>
+                            <br>
+                            <br>
+
+                            <b>Multiple Assignments:</b>
+                            <br>
+                            You can assign multiple variables at once using a single line of code. This can make your
+                            code
+                            more concise and easier to read.
+                            <br>
+                            <div class="box"> <b># Assigning multiple variables on a single line <br>
+                                    a, b, c = 1, 2, 3 <br>
+                                    <br>
+                                    # Assigning the same value to multiple variables <br>
+                                    x = y = z = 42 <br>
+                                    <br>
+
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Python scopes:</b>
+                            <br>
+                            In Python, scope refers to the region of the code where a variable is accessible.
+                            Understanding
+                            scope is crucial because it helps you manage the use of variables, avoid conflicts, and
+                            maintain
+                            clean, readable code. There are four types of scope in Python:
+                            <br>
+
+
+                            The order in which Python searches for a variable's value is known as the LEGB rule:
+                            <br>
+                            <ul>
+                                <li>Local</li>
+                                <li>Enclosing</li>
+                                <li>Global</li>
+                                <li>Built-in</li>
+                            </ul>
+                            <br>
+
+                            <b>Local Variables:</b>
+                            <br>
+
+                            Local variables are variables that are defined within a function or a class. They can only
+                            be
+                            accessed and modified within the scope of the function or class they are defined in.
+                            <br>
+                            <div class="box"> <b>defdisplay_name(): <br>
+                                    # Defining a local variable <br>
+                                    local_name = "Alice" <br>
+                                    print(local_name) <br>
+
+                                    display_name() # Output: Alice <br>
+                                    #print(local_name) # This would raise a NameError because local_name is not defined
+                                    in this scope
+                                    <br>
+                                    <br>
+
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Enclosing (Nonlocal) Scope:</b>
+                            <br>
+                            Enclosing scope is relevant for nested functions. It refers to variables defined in the
+                            outer function that the inner function can access. These variables are neither local to the
+                            inner function nor global.
+                            <br>
+                            <div class="box"> <b>defdisplay_name(): <br>
+                                    # Defining a local variable <br>
+                                    local_name = "Alice" <br>
+                                    print(local_name) <br>
+                                    <br>
+                                    display_name() # Output: Alice <br>
+                                    #print(local_name) # This would raise a NameError because local_name is not defined
+                                    in this scope
+                                    <br>
+                                    <br>
+
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Global Variables: </b>
+                            <br>
+                            Global variables are variables that are defined outside of any function or class. They can
+                            be accessed from anywhere in the code, but their values can only be changed outside of
+                            functions or classes. To modify the value of a global variable inside a function, you need
+                            to use the global keyword.
+                            <br>
+                            <div class="box"> <b>
+                                    # Defining a global variable <br>
+                                    global_counter = 0 <br>
+
+                                    defincrement_counter(): <br>
+                                    # Using the 'global' keyword to indicate we want to modify the global variable <br>
+                                    global global_counter <br>
+                                    global_counter += 1 <br>
+                                    <br>
+                                    increment_counter() <br>
+                                    print(global_counter) # Output: 1
+
+                                    <br>
+                                    <br>
+
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Built-in Scope:</b>
+                            <br>
+                            Built-in scope refers to the predefined names available in Python, such as built-in
+                            functions (e.g., print, len, sum) and exceptions (e.g., ValueError, TypeError). These names
+                            are automatically available in every Python script without needing to import any modules.
+                            <br>
+                            <div class="box"> <b>
+                                    # Using built-in functions <br>
+                                    result = sum([1, 2, 3, 4]) <br>
+                                    print(result) # Output: 10 <br>
+                                    <br>
+                                    # Handling built-in exceptions <br>
+                                    try: <br>
+                                    x = 1 / 0 <br>
+                                    except ZeroDivisionError: <br>
+                                    print("Cannot divide by zero") <br>
+
+
+                                    <br>
+                                    <br>
+
+                                </b></div>
+                            Understanding how Python variables work, including global and local variables, will help you
+                            effectively manage data in your programs and control the flow of your code.
+                            <br>
+                            <br>
+                            <b>Naming Conventions:</b>
+                            <br>
+                            In Python, it's essential to follow naming conventions when defining variables to make your
+                            code more readable and maintainable. Two common naming conventions in Python are CamelCase
+                            and snake_case. Here's an explanation of both and how to use them appropriately in your
+                            Python code:
+                            <br>
+
+                            <b>CamelCase:</b>
+                            <br>
+
+                            CamelCase is a naming convention where the first letter of each word in the variable name is
+                            capitalized, and there are no underscores between words. This style is more commonly used
+                            for class names in Python rather than variable names.
+                            Example of CamelCase:
+                            <br>
+                            <div class="box"> <b>
+                                    classEmployeeDatabase: # notice the different between E and D <br>
+                                    pass <br>
+                                    <br>
+                                    classShoppingCart: <br>
+                                    pass
+
+
+                                    <br>
+                                    <br>
+
+                                </b></div>
+
+                            <br>
+                            <br>
+                            <b>snake_case:</b> snake_case is a naming convention where all letters are lowercase, and
+                            words are separated by underscores. This style is the recommended naming convention for
+                            variable names and function names in Python, according to the PEP 8 style guide.
+                            Example of snake_case:
+
+                            <br>
+                            <div class="box"> <b>
+                                    # Variable names <br>
+                                    employee_name = "Alice" <br>
+                                    shopping_cart_items = ["apple", "banana", "orange"] <br>
+                                    <br>
+                                    # Function names <br>
+                                    defcalculate_sum(a, b): <br>
+                                    return a + b <br>
+                                    <br>
+                                    defupdate_employee_record(employee_id, new_data): <br>
+                                    pass
+                                    <br>
+                                    <br>
+
+                                </b></div>
+                            <br>
+                            <b>Python Data Types:</b> In Python, every value has a data type that determines its
+                            behaviour and the operations that can be performed on it. Here are the most common data
+                            types in Python:
+                            <br>
+                            <br>
+
+                            <b>Integers:</b> Represent whole numbers, both positive and negative.
+                            <br>
+                            <div class="box"> <b>age = 25 <br>
+                                    temperature = -5
+
+                                    <br>
+                                    <br>
+                                </b></div>
+
+                            <br>
+                            <br><b>Floats:</b> Represent real numbers (i.e., numbers with decimal points).
+                            <br>
+                            <div class="box"> <b>pi = 3.14159 <br>
+                                    weight = 65.5
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <br><b>Strings:</b> Represent sequences of characters (text).
+                            <br>
+                            <div class="box"> <b>greeting = "Hello, world!" <br>
+                                    name = 'Alice'
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>Booleans:</b> Represent True or False values.
+                            <br>
+                            <div class="box"> <b>is_adult = True <br>
+                                    is_student = False
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <br>
+                            <b>None</b>: Represents the absence of a value. It is often used as a default value for
+                            variables or as a placeholder.
+                            <br>
+                            <div class="box"> <b>result = None
+                                    <br>
+                                    <br>
+                                </b></div>
+
+                            <br>
+
+                            <section id="list">
+                                <h3>Python Lists:</h3>
+                                <br>
+                                Python Lists: Lists are ordered, mutable collections of items. They can contain items of
+                                different data types, including other lists. Lists are versatile and can be used for
+                                various
+                                purposes, such as storing multiple values, organising data, or creating collections of
+                                similar items. Here's a comprehensive explanation of Python lists with examples and
+                                comments:
+                                <br>
+                                <div class="box"> <b># Creating a list <br>
+                                        fruits = ["apple", "banana", "cherry"] <br>
+                                        <br>
+                                        # Accessing list items using index <br>
+                                        print(fruits[0]) # Output: apple <br>
+                                        print(fruits[2]) # Output: cherry <br>
+                                        <br>
+                                        # Negative indexing retrieves items from the end of the list <br>
+                                        print(fruits[-1]) # Output: cherry <br>
+                                        print(fruits[-2]) # Output: banana <br>
+                                        <br>
+                                        # Slicing lists to create sublists <br>
+                                        print(fruits[1:3]) # Output: ['banana', 'cherry'] <br>
+                                        print(fruits[:2]) # Output: ['apple', 'banana'] <br>
+                                        print(fruits[1:]) # Output: ['banana', 'cherry'] <br>
+
+                                        <br>
+                                        <br>
+                                    </b></div>
+                                <br>
+                                <div class="box"> <b>greeting = "Hello, world!" <br>
+                                        name = 'Alice'
+                                        <br>
+                                        <br>
+                                    </b></div>
+                                <br>
+                                <h3>List comprehension:</h3>
+                                <br>
+
+                                List comprehension is a concise and efficient way to create a new list based on an
+                                existing
+                                list, iterable, or sequence. It is a syntactic construct that allows you to create a
+                                list by
+                                applying an expression to each item in an iterable, filtering items based on a
+                                condition, or
+                                combining both operations. List comprehensions are more readable and often faster than
+                                equivalent code written using loops.
+                                <br>
+                                <div class="box"> <b># List comprehensions: create a new list based on an existing one
+                                        <br>
+                                        squares = [x * x for x inrange(1, 6)] <br>
+                                        print(squares) # Output: [1, 4, 9, 16, 25]
+
+                                        <br>
+                                        <br>
+                                    </b></div>
+                                <br>
+                                <br>
+
+                            </section>
+
+                            <section id="string">
+
+                                <h3>Python Strings:</h3>
+                                Strings are sequences of characters used to represent text in Python. They are ordered
+                                and immutable, meaning that once a string is created, its content cannot be changed
+                                directly. You can create strings using single or double quotes, and they support a
+                                variety of operations and methods that allow you to manipulate and process text data.
+
+                                Below are some of the examples of strings:
+
+                            </section>
+                            <h3>Creating a string:</h3>
+                            <div class="box"> <b>greeting = "Hello, world!" <br>
+                                    name = 'Alice'
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <h3>Accessing characters in a string:</h3>
+                            <br>
+                            <div class="box"> <b>print(greeting[0]) # Output: H <br>
+                                    print(greeting[7]) # Output: w
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <h3>Negative Indexing :</h3>
+                            <br>
+                            <div class="box"> <b>print(greeting[-1]) # Output: ! <br>
+                                    print(greeting[-2]) # Output: d
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <br>
+                            <h3>Slicing strings:</h3>
+                            <br>
+                            <div class="box"> <b>print(greeting[0:5]) # Output: Hello <br>
+                                    print(greeting[:5]) # Output: Hello
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <h3>String concatenation:</h3>
+                            <br>
+                            <div class="box"> <b>full_name = "Alice" + " " + "Smith" <br>
+                                    print(full_name) # Output: Alice Smith
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <h3>String repetition:</h3>
+                            <br>
+                            <div class="box"> <b>repeated = "abc" * 3 <br>
+                                    print(repeated) # Output: abcabcabc
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+                            <h3>Finding the length of a string:</h3>
+                            <br>
+                            <div class="box"> <b>length = len(greeting) <br>
+                                    print(length) # Output: 13
+
+
+                                    <br>
+                                    <br>
+                                </b></div>
+                            <br>
+
+                        </section>
+
+
+
+
+                        <section id="tuples">
+                            <h3>Tuples</h3>
+                            <div class="vsmall">Tuples are ordered, immutable collections of items. They can contain
+                                items of different data types, including other tuples. Tuples are similar to lists
+                                but cannot be modified once they are created. This makes them suitable for storing
+                                fixed collections of items or data that should not be changed.
+                                <div class="box"> <b># Creating a tuple <br />
+                                        fruits = ("apple", "banana", "cherry") <br />
+                                        <br />
+                                        # Tuples can also be created without parentheses <br />
+                                        colors = "red", "green", "blue" <br />
+                                        <br />
+                                        # Creating a tuple with a single element (note the trailing comma) <br />
+                                        single_element_tuple = ("hello",) <br />
+                                        <br />
+                                        # Accessing tuple items using index <br />
+                                        print(fruits[0]) # Output: apple <br />
+                                        print(fruits[2]) # Output: cherry <br />
+                                        <br />
+                                        # Negative indexing retrieves items from the end of the tuple <br />
+                                        print(fruits[-1]) # Output: cherry <br />
+                                        print(fruits[-2]) # Output: banana <br />
+                                        <br />
+                                        # Slicing tuples to create sub-tuples <br />
+                                        print(fruits[1:3]) # Output: ('banana', 'cherry') <br />
+                                        print(fruits[:2]) # Output: ('apple', 'banana') <br />
+                                        print(fruits[1:]) # Output: ('banana', 'cherry') <br />
+                                        <br />
+                                        # Tuples are immutable, so you cannot change their items directly <br />
+                                        # The following line would raise an error: <br />
+                                        # fruits[1] = "blueberry" <br />
+
+                                        # Finding the length of a tuple <br />
+                                        print(len(fruits)) # Output: 3 <br />
+                                        <br />
+                                        # Looping through a tuple <br />
+                                        for fruit in fruits: <br />
+                                        print(fruit) <br />
+                                        <br />
+                                        # Tuples can be used for multiple assignment (unpacking) <br />
+                                        name, age, city = ("Alice", 30, "New York") <br />
+                                        print(name) # Output: Alice <br />
+                                        print(age) # Output: 30 <br />
+                                        print(city) # Output: New York <br />
+                                        <br />
+                                        # Combining tuples <br />
+                                        merged_tuple = fruits + colors <br />
+                                        print(merged_tuple) # Output: ('apple', 'banana', 'cherry', 'red', 'green',
+                                        'blue')
+
+
+                                        <br>
+                                        <br>
+                                    </b></div>
+                            </div>
+                        </section>
+
+                        <section id="set">
+                            <h3>Python sets:</h3>
+                            <div class="vsmall">A set is an unordered collection of unique items. Sets are mutable, but
+                                their elements must be immutable, such as strings, numbers, and tuples. Sets are
+                                particularly useful when you need to remove duplicates from a collection or perform
+                                mathematical operations like union, intersection, and difference.
+                                <br>
+                                Create Set and Adding items to set
+
+                                <div class="box"> <b>
+                                        animals = {"cat", "dog", "elephant"} <br>
+                                        colors = set(["red", "green", "blue"]) <br>
+                                        <br>
+                                        animals.add("giraffe") <br>
+                                        colors.update(["yellow", "purple"])
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                <b>Set operations: </b>
+                                <div class="box"> <b>
+                                        # Set operations <br>
+                                        A = {1, 2, 3, 4, 5} <br>
+                                        B = {4, 5, 6, 7, 8} <br>
+                                        <br>
+                                        # Union (items present in either A or B) <br>
+                                        union = A | B <br>
+                                        print(union) # Output: {1, 2, 3, 4, 5, 6, 7, 8} <br>
+                                        <br>
+                                        # Intersection (items present in both A and B) <br>
+                                        intersection = A & B <br>
+                                        print(intersection) # Output: {4, 5} <br>
+                                        <br>
+                                        # Difference (items in A but not in B) <br>
+                                        difference = A - B <br>
+                                        print(difference) # Output: {1, 2, 3} <br>
+                                        <br>
+                                        # Symmetric difference (items in either A or B, but not in both) <br>
+                                        symmetric_difference = A ^ B <br>
+                                        print(symmetric_difference) # Output: {1, 2, 3, 6, 7, 8}
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                Sets are a powerful data structure in Python that allows you to store and manipulate
+                                unique items in an unordered collection. By understanding how to create, modify, and use
+                                sets, you can work effectively with unique data and perform mathematical set operations
+                                in your Python programs.
+
+                            </div>
+                        </section>
+
+                        <section id="dictionary">
+                            <h3>Python Dictionary:</h3>
+                            <div class="vsmall">A dictionary is an unordered collection of key-value pairs, where each
+                                key must be unique. Dictionaries are mutable, meaning you can add, remove, or modify
+                                their key-value pairs. They are useful for storing data in a structured way, like
+                                configuration settings, phonebooks, or word counts in a text.
+                                <div class="box"> <b>
+                                        # Creating a dictionary using curly braces <br>
+                                        person = {"name": "Alice", "age": 30, "city": "New York"} <br>
+                                        <br>
+                                        # Creating a dictionary using the dict() constructor <br>
+                                        colors = dict(red=255, green=128, blue=0) <br>
+                                        <br>
+                                        # Accessing values using keys <br>
+                                        print(person["name"]) # Output: Alice <br>
+                                        print(colors["red"]) # Output: 255
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br> <br>
+                                <div class="box"> <b>
+                                        # Accessing values using keys <br>
+                                        print(person["name"]) # Output: Alice <br>
+                                        print(colors["red"]) # Output: 255 <br>
+                                        <br>
+                                        # Adding or updating key-value pairs <br>
+                                        person["age"] = 31 <br>
+                                        colors["alpha"] = 128 <br>
+                                        print(person) # Output: {'name': 'Alice', 'age': 31, 'city': 'New York'} <br>
+                                        print(colors) # Output: {'red': 255, 'green': 128, 'blue': 0, 'alpha': 128} <br>
+                                        <br>
+                                        # Removing a key-value pair using del keyword <br>
+                                        del person["city"] <br>
+                                        print(person) # Output: {'name': 'Alice', 'age': 31} <br>
+                                        <br>
+                                        # Checking if a key is in the dictionary <br>
+                                        print("name"in person) # Output: True <br>
+                                        print("city"in person) # Output: False <br>
+                                        <br>
+                                        # Getting the value for a key using the get() method (returns None if the key is
+                                        <br>
+                                        not found) <br>
+                                        print(person.get("city")) # Output: None <br>
+                                        <br>
+                                        # Finding the number of key-value pairs in the dictionary <br>
+                                        print(len(person)) # Output: 2
+
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                Dictionaries are a versatile data structure in Python for storing and organizing
+                                key-value pairs. By understanding how to create, access, and manipulate dictionaries,
+                                you can work effectively with structured data in your Python programs.
+
+                            </div>
+                        </section>
+
+                        <section id="boolean">
+                            <h3>Python Boolean:</h3>
+                            <div class="vsmall">: <b>True or False</b> They are often used in conditional statements and
+                                comparisons. In Python, boolean values are instances of the bool class, which is a
+                                subclass of the int class.
+
+                                Booleans are fundamental data types in Python, often used for comparisons and
+                                decision-making in programs. By understanding how to work with boolean values, you can
+                                control the flow of your Python programs more effectively.
+
+                            </div>
+                        </section>
+
+
+
+
+
+
+
+                        <section id="conditional">
+                            <header id="heading1">Conditional Statements</header>
+                            <div class="vsmall">Control the flow of your program using if, elif, and else
+                                statements.</div>
+                        </section>
+
+                        <b>Function Definition:</b><br>
+                        Functions are reusable pieces of code that can be called with arguments and may return a
+                        value.
+                        Functions are defined using the def keyword, followed by the function name, a list of
+                        parameters
+                        in parentheses, and a colon.
+                        </section>
+
+                        <br><br>
+                        <b>Importing Modules:</b>
+                        <br>
+                        Python has a vast standard library, and you can use modules to access additional functions and
+                        classes. To use a module, you need to import it using the import keyword.
+                        <br>
+
+                        <br>
+                        Understanding these basic Python syntax concepts will help novice programmers start writing code
+                        and build a strong foundation for more advanced topics. As you progress through the tutorials,
+                        you'll learn more about Python syntax and programming concepts, allowing you to create more
+                        complex and powerful applications.
+
+                        <section id="array">
+                            <h3>Python Arrays:</h3>
+                            <div class="vsmall">In Python, arrays are not a built-in data type like lists or tuples.
+                                However, you can use the array module to create and work with arrays. Arrays are similar
+                                to lists, but they can store only elements of the same data type, which makes them more
+                                efficient in terms of memory and performance for certain operations.
+                                <div class="box"> <b>
+                                        # Importing the array module <br>
+                                        import array <br>
+                                        <br>
+                                        # Creating an array from a list of integers <br>
+                                        int_array = array.array('i', [1, 2, 3, 4, 5]) <br>
+                                        <br>
+                                        # Accessing array elements <br>
+                                        print(int_array[0]) # Output: 1 <br>
+                                        print(int_array[1]) # Output: 2 <br>
+                                        <br>
+                                        # Modifying array elements <br>
+                                        int_array[2] = 6 <br>
+                                        print(int_array) # Output: array('i', [1, 2, 6, 4, 5]) <br>
+                                        <br>
+                                        # Adding elements to an array <br>
+                                        int_array.append(7) <br>
+                                        print(int_array) # Output: array('i', [1, 2, 6, 4, 5, 7]) <br>
+
+                                        <br>
+                                        <br>
+                                    </b></div>
+
+                                Keep in mind that for most use cases, Python lists are more versatile and easier to work
+                                with than arrays. However, if you have a specific requirement for working with large
+                                amounts of numerical data with a single data type, using the array module can provide
+                                performance and memory benefits. Additionally, for more advanced numerical operations,
+                                consider using the numpy library, which offers powerful tools for working with arrays
+                                and matrices. <br> <br>
+
+                            </div>
+                        </section>
+
+                        <section id="oops">
+                            <h3>Python OOP concept:</h3>
+                            <div class="vsmall">Python Object-Oriented Programming (OOP) Concept: Object-oriented
+                                programming (OOP) is a programming paradigm that uses objects and classes to structure
+                                code. Python supports OOP and provides various features like inheritance, encapsulation,
+                                and polymorphism to help developers create modular and reusable code.
+
+
+                                Classes and Objects: Classes are blueprints for creating objects (instances). Objects
+                                are instances of classes that have attributes (data) and methods (functions).
+
+                                <div class="box"> <b>
+                                        # Defining a class called "Car" <br>
+                                        classCar: <br>
+                                        # Constructor method initializes attributes when creating an object <br>
+                                        def__init__(self, brand, model): <br>
+                                        self.brand = brand <br>
+                                        self.model = model <br>
+                                        <br>
+                                        # Method to describe the car <br>
+                                        defdescribe(self): <br>
+                                        print(f"This is a {self.brand} {self.model}.") <br>
+                                        <br>
+                                        # Creating two objects (instances) of the "Car" class <br>
+                                        car1 = Car("Toyota", "Corolla") <br>
+                                        car2 = Car("Honda", "Civic") <br>
+                                        <br>
+                                        # Accessing the attributes of the objects <br>
+                                        print(car1.brand) # Output: Toyota <br>
+                                        print(car2.model) # Output: Civic <br>
+                                        <br>
+                                        # Calling the method describe() on the objects <br>
+                                        car1.describe() # Output: This is a Toyota Corolla.
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+
+                                <b>Inheritance:</b> Inheritance allows a new class to use the properties and methods of
+                                an
+                                existing class. This helps to reuse code and keep things organized. <br> <br>
+                                <div class="box"> <b>
+                                        # Defining a parent class called "Shape" <br>
+                                        classShape: <br>
+                                        defarea(self): <br>
+                                        pass# Just a placeholder; we will override this in the child classes <br>
+                                        <br>
+                                        # Defining a child class called "Circle" that inherits from "Shape" <br>
+                                        classCircle(Shape): <br>
+                                        def__init__(self, radius): <br>
+                                        self.radius = radius <br>
+                                        <br>
+                                        # Overriding the area() method from the parent class <br>
+                                        defarea(self): <br>
+                                        return3.14 * (self.radius ** 2) <br>
+                                        <br>
+                                        # Creating an object of the "Circle" class <br>
+                                        circle1 = Circle(5) <br>
+                                        <br>
+                                        # Calling the area() method inherited from the parent class <br>
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                <b>Encapsulation:</b> Encapsulation means hiding the inner workings of an object and
+                                exposing
+                                only what's necessary. It helps keep your code safe and easier to maintain. <br>
+
+                                <div class="box"> <b>
+                                        classStudent: <br>
+                                        def__init__(self, name, age): <br>
+                                        self._name = name # A private attribute (not accessible directly) <br>
+                                        self._age = age <br>
+                                        <br>
+                                        # Public method to get the name of the student <br>
+                                        defget_name(self): <br>
+                                        return self._name <br>
+                                        <br>
+                                        # Public method to set the name of the student <br>
+                                        defset_name(self, name): <br>
+                                        self._name = name <br>
+                                        <br>
+                                        # Creating an object of the "Student" class <br>
+                                        student1 = Student("Alice", 20) <br>
+                                        <br>
+                                        # Accessing private attributes using public methods <br>
+                                        print(student1.get_name()) # Output: Alice <br>
+                                        <br>
+                                        # Modifying private attributes using public methods <br>
+                                        student1.set_name("Bob") <br>
+                                        print(student1.get_name()) # Output: Bob
+
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                <b>Polymorphism:</b> Polymorphism means using one interface to represent different types
+                                of
+                                objects. It makes your code more flexible and adaptable. <br>
+
+                                <div class="box"> <b>
+                                        classAnimal: <br>
+                                        defspeak(self): <br>
+                                        pass <br>
+                                        <br>
+                                        classDog(Animal): <br>
+                                        defspeak(self): <br>
+                                        return"Woof!" <br>
+                                        <br>
+                                        classCat(Animal): <br>
+                                        defspeak(self): <br>
+                                        return"Meow!" <br>
+                                        <br>
+                                        # Function that takes an "Animal" object as an argument <br>
+                                        defmake_sound(animal): <br>
+                                        print(animal.speak()) <br>
+                                        <br>
+                                        # Creating objects of "Dog" and "Cat" classes <br>
+                                        dog = Dog() <br>
+                                        cat = Cat() <br>
+                                        <br>
+                                        # Using polymorphism to call the correct "speak()" method <br>
+                                        make_sound(dog) # Output: Woof
+                                        <br>
+                                        <br>
+                                    </b></div>
+                            </div>
+                        </section>
+
+                        <section id="file">
+                            <h3>Python File Handling:</h3>
+                            <div class="vsmall">Python File Handling allows you to work with files, such as reading from
+                                and writing to files.
+                                <br>
+                                Opening and Closing Files: You can open a file using the open() function, which returns
+                                a file object. You should close the file when you're done using the close() method.
+
+                                <div class="box"> <b>
+                                        # Opening a file in read mode ('r') <br>
+                                        file = open("example.txt", 'r') <br>
+                                        <br>
+                                        # Do something with the file... <br>
+                                        <br>
+                                        # Closing the file <br>
+                                        file.close()
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+
+                                <b>Reading from Files:</b> There are several ways to read data from a file, such as
+                                reading the
+                                entire file, reading line by line, or reading a specific number of characters. <br> <br>
+                                <div class="box"> <b>
+                                        # Reading the entire content of the file <br>
+                                        file = open("example.txt", 'r') <br>
+                                        content = file.read() <br>
+                                        print(content) <br>
+                                        file.close() <br>
+                                        <br>
+                                        # Reading the file line by line <br>
+                                        file = open("example.txt", 'r') <br>
+                                        for line in file: <br>
+                                        print(line.strip()) # Removing newline character <br>
+                                        file.close() <br>
+                                        <br>
+                                        # Reading a specific number of characters <br>
+                                        file = open("example.txt", 'r') <br>
+                                        content = file.read(10) # Reads the first 10 characters <br>
+                                        print(content) <br>
+                                        file.close()
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+
+                                <div class="box"> <b>
+                                        # Writing to a file (overwriting existing content) <br>
+                                        file = open("example.txt", 'w') <br>
+                                        file.write("Hello, World!") <br>
+                                        file.close() <br>
+                                        <br>
+                                        # Appending data to a file (without overwriting) <br>
+                                        file = open("example.txt", 'a') <br>
+                                        file.write("\nThis is a new line.") <br>
+                                        file.close()
+
+
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+
+                                <b>Using 'with' statement:</b> The 'with' statement automatically takes care of closing
+                                the
+                                file after the block of code is executed. This is a more elegant way of handling
+                                files. <br> <br>
+                                <div class="box"> <b>
+                                        # Reading from a file using 'with' statement <br>
+                                        withopen("example.txt", 'r') as file: <br>
+                                        content = file.read() <br>
+                                        print(content) <br>
+                                        <br>
+                                        # Writing to a file using 'with' statement <br>
+                                        withopen("example.txt", 'w') as file: <br>
+                                        file.write("Hello, World!")
+                                        <br>
+                                        <br>
+                                    </b></div> <br>
+                                By understanding and using these file handling concepts, you can effectively work with
+                                files in Python. This is useful for tasks like storing configuration data, logging, and
+                                processing data files.
+
+
+                            </div>
+                        </section>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+</body>
+<!-- officially stopped working on this page design on 8/17/2017 11:42 PM -->
+
+
+</html>

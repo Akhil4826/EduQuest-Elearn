@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!-- Made by Udolf in 3 days-->
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <title>Codecrackers-sql Tutorial</title>
+    <!-- links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Java_script/css/bootstrap.min.css">
+    <script src="Java_script/js/bootstrap.js"></script>
+    <script src="Java_script/jquery-3.2.1.js"></script>
+    <script src="javaw.js"></script>
+    <link rel="stylesheet" href="cssw.css" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   -->
+
+    <style>
+        .box {
+            width: 50%;
+            height: auto;
+            border: 1px solid black;
+            padding: 10px;
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+            border: 3px solid lightblue;
+        }
+
+        .dropdown1 {
+            position: relative;
+            justify-content: center;
+            float: right;
+            background-color: #0047AB;
+            color: #ffffff;
+        }
+
+        .dropdown1-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .dropdown1:hover .dropdown1-content {
+            display: block;
+            background-color: #707070;
+        }
+
+        .dropdown1-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown1-content a:hover {
+            background-color: #f1f1f1
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="menu_icon dropdown"><a class=" white_c" id="menu_icon">&#9776;</a></li>
+            <a href="../home.php">
+                <li id="home" class="glyphicon glyphicon-home left">
+                    <div></div>
+                </li>
+            </a>
+
+            <a href="python.html">
+                <li class="left">PYTHON</li>
+            </a>
+            <a href="html1.html">
+                <li class="left">HTML</li>
+            </a>
+            <a href="css.html">
+                <li class="left">CSS</li>
+            </a>
+            <a href="js.html">
+                <li class="left">JAVASCRIPT</li>
+            </a>
+            <a href="sql.html">
+                <li class="left">SQL</li>
+            </a>
+            <a href="php.html">
+                <li class="left">PHP</li>
+            </a>
+
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Online Compiler
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="ide\python\python\python.html">PYTHON</a></li>
+                  <li><a class="dropdown-item" href="ide\js\js\js.html">JAVASCRIPT</a></li>
+                  <li><a class="dropdown-item" href="ide\php\pHP\php.html">PHP</a></li>
+                  <li><a class="dropdown-item" href="ide\sql\sql\sql.html">SQL</a></li>          
+                </ul>
+              </li> -->
+
+            <!-- <h2>Dropdown Menu</h2>
+            <p>Move the mouse over the button to open the dropdown menu.</p> -->
+
+            <div class="dropdown1">
+                <!-- <button>Online Compiler</button> -->
+                <li>Online Compiler</li>
+                <div class="dropdown1-content">
+                    <a href="..\ide\python\python\python.html">PYTHON</a>
+                    <a href="..\ide\js\js\js.html">JAVASCRIPT</a>
+                    <a href="..\ide\php\pHP\php.html">PHP</a>
+                    <a href="..\ide\sql\sql\sql.html">SQL</a>
+                    <a href="..\ide\html\html\html1.html">HTML</a>
+                    <a href="..\ide\css\css\css.html">CSS</a>
+
+                </div>
+            </div>
+
+        </ul>
+
+    </nav>
+
+    <!-- NAV ends here pretty big though -->
+    <div class="left-aside">
+        <ul>
+            <li id="head2" type="checkbox">  SQL Tutorial</li>
+            <a href="">
+                <li><input type="checkbox"> Introduction to SQL</li>
+            </a>
+            <a href="#intro">
+                <li> <input type="checkbox"> What is Sql</li>
+            </a>
+            <a href="#select">
+                <li> <input type="checkbox"> SQL SELECT</li>
+            </a>
+            <a href="#function">
+                <li> <input type="checkbox"> SQL FUNCTIONS</li>
+            </a>
+            <a href="#joins">
+                <li> <input type="checkbox"> SQL JOINS</li>
+            </a>
+            <a href="#group">
+                <li> <input type="checkbox"> SQL GROUPBY and HAVING </li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Alias</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL NULL Values</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Nested Queries</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Data Manupulation</li>
+            </a><a href="">
+                <li> <input type="checkbox"> SQL Data Definition</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Data Manipulation</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Constraints</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Indexes</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox"> SQL Views</li>
+            </a>
+            <a href="">
+                <li> <input type="checkbox">SQL Transactions</li>
+            </a>
+            <a href="../quiz/sql.html">
+                <li> <input type="checkbox"> SQL Quiz Contests for</li>
+            </a>
+
+
+
+
+
+
+
+
+        </ul>
+    </div>
+    <!--left aside menu finished yo! yo! yo! -->
+
+    <div class="row" id="big-cont">
+        <div id="main-content" class="col-md-offset-2 col-md-10">
+            <div class="row">
+                <div class="col-md-10">
+                    <header id="heading1">SQL Tutorial</header>
+                    <div class="smallfont" id="gback">
+                        What is SQL?
+                        Structured Query Language (SQL) is a standardised programming language for managing and
+                        manipulating relational databases. SQL allows users to create, read, update, and delete data
+                        stored in a database. It provides a simple and efficient way to communicate with databases,
+                        making it an essential skill for web developers, data analysts, and database administrators.<br>
+                        <br>
+                        <br>
+
+                    </div>
+
+
+
+                    <section id="intro">
+                        <div id="heading1"> What is SQL</div>
+                        <div class="vsmall">
+                            <div class="vsmall">
+                                SQL is designed to be both easy to learn for beginners and powerful enough for advanced
+                                users. Some of the primary tasks you can perform with SQL include:
+                                <ul>
+                                    <li>Retrieving data from a database</li>
+                                    <li>Inserting new data into a database</li>
+                                    <li>Updating existing data in a database</li>
+                                    <li> Deleting data from a database</li>
+                                    <li>Creating and managing database structures, such as tables and indexes</li>
+                                    <br>
+                                    SQL has become a universal language supported by most relational database management
+                                    systems (RDBMS), including MySQL, PostgreSQL, Microsoft SQL Server, Oracle, and
+                                    SQLite.
+                                    <br>
+                                </ul>
+                                • Relational Database Management Systems (RDBMS) <br><br>
+                                A Relational Database Management System (RDBMS) is a type of database management system
+                                that uses SQL to store, manage, and retrieve data in a structured format. An RDBMS
+                                organises data into tables, where each table consists of rows (records) and columns
+                                (fields). Tables can be related to one another based on common columns, known as keys,
+                                which allow you to establish relationships between data in different tables.
+                            </div>
+
+                            <section id="basics">
+                                <header id="heading1">SQL Basics</header>
+                                <div class="vsmall">
+                                    • SQL Syntax and Keywords: <br> <br>
+                                    SQL syntax consists of a set of rules that determine how SQL commands and queries
+                                    are structured. The main components of SQL syntax are keywords, identifiers,
+                                    operators, literals, and special characters. Keywords are reserved words that have
+                                    specific meanings in SQL, such as SELECT, FROM, WHERE, etc. SQL keywords are
+                                    generally written in uppercase, although SQL is not case-sensitive for keywords.
+                                    <br> <br>
+                                    A basic SQL query is structured as follows:
+                                    <div class="box"> <b>SELECT column1, column2, ... <br>
+                                            FROM table_name <br>
+                                            WHERE conditions;
+                                        </b></div>
+                                    <br><br>
+                                    In this example, SELECT and FROM are keywords. column1, column2, and table_name are
+                                    identifiers, representing the names of the columns and the table in the database.
+                                    The WHERE keyword is followed by conditions that filter the results.
+                                </div>
+
+                            </section>
+
+                            <section id="select">
+                                <header id="heading1">SQL SELECT</header>
+                                <div class="vsmall">
+                                    The SELECT statement is used to query and retrieve data from one or more tables in a
+                                    relational database. Here's a breakdown of the various components involved in a
+                                    SELECT statement:
+                                    <br> <br> • SELECT Clause: <br>
+                                    The SELECT clause specifies the columns you want to retrieve from a table. You can
+                                    list the column names separated by commas, or you can use the asterisk (*) to select
+                                    all columns:
+
+                                    <div class="box"> <b>SELECT*
+                                            FROM table_name;
+
+                                        </b></div>
+                                    <br><br>
+                                    • SELECT DISTINCT <br>
+                                    The SELECT DISTINCT clause is used to return only unique (distinct) values in the
+                                    specified columns, eliminating duplicate values:
+                                    <br>
+                                    <div class="box"> <b>SELECTDISTINCT column1 <br>
+                                            FROM table_name;
+
+
+                                        </b></div>
+                                </div>
+                            </section>
+
+                            <section id="function">
+                                <header id="heading1">SQL Functions</header>
+                                <div class="vsmall">
+                                    SQL functions are built-in functions that can be used to perform operations on data
+                                    in tables. They are commonly used in the SELECT clause of a query, but can also be
+                                    used in other parts of a query as needed. There are two main types of SQL functions:
+                                    aggregate functions and scalar functions. <br>
+                                    • Aggregate Functions (COUNT, SUM, AVG, MIN, MAX) <br> <br>
+                                    Aggregate functions perform calculations on a set of values and return a single
+                                    value as the output. They are often used with the GROUP BY clause to perform
+                                    calculations on groups of rows that share the same values in specified columns. Some
+                                    common aggregate functions are:
+                                    <br> <br>
+                                    A basic SQL query is structured as follows:
+                                    <div class="box"> <b>SELECT column1, column2, ... <br>
+                                            FROM table_name <br>
+                                            WHERE conditions;
+                                        </b></div>
+                                    <br><br>
+                                    <b>COUNT:</b> Returns the number of rows that match a specified condition. <br>
+                                    <div class="box"> <b>SELECTCOUNT(column1) <br>
+                                            FROM table_name;
+                                            <br>
+                                            WHERE conditions;
+                                        </b></div>
+                                </div>
+
+                            </section>
+
+                            <section id="joins">
+                                <header id="heading1">SQL Joins</header>
+                                <div class="vsmall">
+                                    Joins are used in SQL to combine data from two or more tables based on a related
+                                    column between them. There are several types of joins that can be used to retrieve
+                                    data:
+                                    <br>
+                                    • INNER JOIN: <br><br>
+                                    INNER JOIN: This type of join returns rows from both tables where there is a match
+                                    between the columns specified in the ON clause. If there's no match, the row will
+                                    not be included in the result.
+                                    <br>
+
+                                    <div class="box"> <b>SELECT table1.column1, table2.column2 <br>
+                                            FROM table1 <br>
+                                            INNERJOIN table2 <br>
+                                            ON table1.column1 = table2.column1;
+
+                                        </b></div>
+                                    <br><br>
+                                    • LEFT JOIN: <br><br>
+                                    LEFT JOIN (or LEFT OUTER JOIN): This join returns all the rows from the left table
+                                    (table1), and the matched rows from the right table (table2). If there's no match,
+                                    NULL values will be displayed for the columns from the right table.
+
+                                    <div class="box"> <b>SELECT table1.column1, table2.column2 <br>
+                                            FROM table1 <br>
+                                            LEFTJOIN table2 <br>
+                                            ON table1.column1 = table2.column1;
+                                        </b></div> <br><br>
+                                    • RIGHT JOIN: <br> <br>
+                                    RIGHT JOIN (or RIGHT OUTER JOIN): This join returns all the rows from the right
+                                    table (table2), and the matched rows from the left table (table1). If there's no
+                                    match, NULL values will be displayed for the columns from the left table.
+                                    <div class="box"> <b>SELECT table1.column1, table2.column2 <br>
+                                            FROM table1 <br>
+                                            RIGHT JOIN table2 <br>
+                                            ON table1.column1 = table2.column1;
+
+                                        </b></div> <br><br>
+                                </div>
+                            </section>
+
+                            <section id="group">
+                                <header id="heading1">6. SQL GROUP BY and HAVING</header>
+                                <div class="vsmall">
+                                    • GROUP BY Clause: <br><br>
+                                    GROUP BY Clause: Groups rows with common values in specified columns, often used
+                                    with aggregate functions. It reduces the number of rows in the result set by
+                                    combining rows with similar data.
+
+                                    <br> <br>
+                                    <div class="box"> <b>SELECT category, COUNT(*) AS total_items <br>
+                                            FROM products <br>
+                                            GROUPBY category;
+
+                                        </b></div>
+                                    <br><br>
+                                    • HAVING Clause: <br><br>
+                                    HAVING Clause: Filters the results of a GROUP BY query based on a condition applied
+                                    to the aggregated data, similar to a WHERE clause but specifically for aggregated
+                                    results.
+                                    <div class="box"> <b>SELECT category, COUNT(*) AS total_items <br>
+                                        FROM products <br>
+                                        GROUPBY category <br>
+                                        HAVING total_items >10;
+                                        
+
+                                        </b></div>
+                                </div>
+
+                            </section>
+
+
+
+                        </div>
+                </div>
+
+            </div>
+
+</body>
+<!-- officially stopped working on this page design on 8/17/2017 11:42 PM -->
+
+
+</html>
