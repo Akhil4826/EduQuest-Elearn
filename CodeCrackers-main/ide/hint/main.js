@@ -69,8 +69,8 @@ function displayResults(items) {
 
 
 /*async function search() {
-    const apiKey = 'AIzaSyCW3xCE8dlmVdvNjUH9qwUTREZ_Ibf8sqI';
-    const searchEngineId = '1405839ff6ad04557';
+    const apiKey = '';
+    const searchEngineId = '';
     const query = document.getElementById('searchQuery').value;
     const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(query)}`;
 
